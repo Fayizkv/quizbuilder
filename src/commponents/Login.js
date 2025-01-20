@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Quiz from './Quiz';
 
 function Login() {
     const Navigate = useNavigate();
@@ -11,6 +12,7 @@ function Login() {
             <label> Enter Password
                 <input type="password" Enter Password />
             </label>
+            <Quiz />
             <button onClick={() => { Navigate('/') }}> Go Back </button>
         </div>
     )

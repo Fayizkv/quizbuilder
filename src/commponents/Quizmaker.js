@@ -19,18 +19,21 @@ function Quizmaker() {
 
     async function handleSubmit() {
             const collectionRef = collection(firestore,'questionBank');
-            setWrongAnswers([wrongAnswer1,wrongAnswer2,wrongAnswer3]);
-            const ref = await addDoc(collectionRef,{
+            // setWrongAnswers([wrongAnswer1,wrongAnswer2,wrongAnswer3]);
+            const incorrectAnswers = [wrongAnswer1, wrongAnswer2, wrongAnswer3];
+
+            
+            await addDoc(collectionRef,{
                 type:'multiple',
                 category:category,
                 difficulty:difficulty,
                 question:question,
                 correctAnswer:answer,
-                wrongAnswers:wrongAnswers
+                incorrectAnswers:incorrectAnswers
             });
             setQuestion('');
             setAnswer('');
-            setWrongAnswers(['']);
+            setWrongAnswers([]);
             setWrongAnswer1('');
             setWrongAnswer2('');
             setWrongAnswer3('');
