@@ -18,6 +18,11 @@ function Quizmaker() {
     const {firestore} = useContext(FirebaseContext);
 
     async function handleSubmit() {
+
+        if (!question || !answer || !wrongAnswer1 || !wrongAnswer2 || !wrongAnswer3) {
+            alert("Please fill in all fields before submitting.");
+            return; // Prevent form submission
+        }
             const collectionRef = collection(firestore,'questionBank');
             // setWrongAnswers([wrongAnswer1,wrongAnswer2,wrongAnswer3]);
             const incorrectAnswers = [wrongAnswer1, wrongAnswer2, wrongAnswer3];
