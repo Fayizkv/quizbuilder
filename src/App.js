@@ -12,6 +12,7 @@ function App() {
     <div className="App">
         <button onClick={()=>navigate('/login')}>Login</button>
         <button onClick={()=>navigate('/quizmaker')}>Make Quiz</button>
+        <button onClick={()=>navigate('/quizmakerauto')}>Automatic Quiz Generator</button>
 
      {/* {user ? console.log(user) : 'not logged in'} */}
     </div>

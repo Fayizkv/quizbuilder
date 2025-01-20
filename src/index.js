@@ -5,6 +5,7 @@ import { FirebaseProvider } from './firebaseContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './commponents/Login';
 import Quizmaker from './commponents/Quizmaker';
+import AutogenQuestions from './commponents/AutogenQuestions'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
         <Route path="/" element={<App/>}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/quizmaker" element={<Quizmaker />}/>
+        <Route path="/quizmakerauto" element={<AutogenQuestions/>}/>
       </Routes>
     </Router>
     </FirebaseProvider>
