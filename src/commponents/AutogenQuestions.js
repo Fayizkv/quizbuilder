@@ -22,7 +22,6 @@ function AutogenQuestions() {
         // console.log(results.difficulty, results.category);
         const collectionRef = collection(firestore,"questionBank")
         results.map((obj)=>{
-            console.log(obj.difficulty, obj.category,);
             addDoc(collectionRef,{
                 type: obj.type,
                 category: obj.category,
@@ -32,7 +31,7 @@ function AutogenQuestions() {
                 incorrectAnswers: obj.incorrect_answers
             })
         })
-        console.log("inserted succesfully");
+        alert("Questions added to database succesfully");
         })
     }
     return (
@@ -41,9 +40,10 @@ function AutogenQuestions() {
             <div>
                 <label>Difficulty: </label>
                 <select
-                    value={difficulty ? difficulty : "easy"}
+                    value={difficulty}
                     onChange={(e) => setDifficulty(e.target.value)}
                 >
+                    <option value="" disabled>Select Difficulty</option>
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
                     <option value="hard">Hard</option>
@@ -56,6 +56,7 @@ function AutogenQuestions() {
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                 >
+                    <option value="" disabled>Select Category</option>
                     <option value="9">General Knowledge</option>
                     <option value="21">Sports</option>
                     <option value="18">Science: Computers</option>
