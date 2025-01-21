@@ -1,0 +1,79 @@
+/* Container for the component */
+div {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Dropdown menus and buttons */
+select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Select styles */
+select {
+    cursor: pointer;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+/* Button hover effect */
+button {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Disabled option */
+option:disabled {
+    color: #888;
+}
+
+/* Small styling adjustments */
+button:focus, select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Go back button with slightly different style */
+button:last-child {
+    background-color: #f44336;
+}
+
+button:last-child:hover {
+    background-color: #e53935;
+}
+
+/* Layout for multiple inputs */
+div > div {
+    margin-bottom: 20px;
+}
+
+/* Add spacing between labels */
+label + div {
+    margin-top: 10px;
+}

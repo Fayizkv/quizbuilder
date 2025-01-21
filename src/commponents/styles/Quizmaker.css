@@ -1,0 +1,69 @@
+.quizmaker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    background-color: #f4f6f9;
+    padding: 20px;
+  }
+  
+  label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  input, select {
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    max-width: 500px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  input[type="text"]:focus, select:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  button {
+    padding: 12px 24px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  button:active {
+    background-color: #1c5988;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  button:nth-child(2) {
+    background-color: #e74c3c; /* Red color for 'Go Back' button */
+  }
+  
+  button:nth-child(2):hover {
+    background-color: #c0392b;
+  }
+  
+  button:nth-child(2):active {
+    background-color: #9b2d20;
+  }
+  
