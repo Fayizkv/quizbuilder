@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { FirebaseContext } from "../firebaseContext";
 import { collection, query, where, getDocs, getDoc, updateDoc, doc, arrayUnion, setDoc } from 'firebase/firestore';
 import Scoreboard from "./Scoreboard";
@@ -11,7 +11,15 @@ function Quiz() {
     const [category, setCategory] = useState('');
     const [selectedAnswer, setSelectedAnswer] = useState({});
     const navigate = useNavigate()
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
+    // if(isSubmitted) navigate('/quiz');
+    useEffect(() => {
+        if (isSubmitted) {
+            // Replace the current history entry so that the user cannot use the back button
+            window.history.replaceState(null, '', '/scoreboard');
+        }
+    }, [isSubmitted]);
     async function startQuiz() {
         const collectionRef = collection(firestore, 'questionBank');
         const categoryQuery = query(collectionRef, where('category', '==', category));
@@ -76,6 +84,7 @@ function Quiz() {
         alert(`Your Score : ${score}`);
         if (user)
             saveResults(score);
+        setIsSubmitted(true);
         navigate('/scoreboard');
     }
 
@@ -132,7 +141,7 @@ function Quiz() {
                             </select>
                         </div>
                     ))}
-                    <button className="submit-button" onClick={getResults}>Submit</button>
+                    <button className="submit-button" onClick={getResults} disabled={isSubmitted}>Submit</button>
                 </div>
                 : <h1 className="no-questions">No questions available, please click start</h1>
             }
