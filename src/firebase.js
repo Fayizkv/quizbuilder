@@ -6,20 +6,20 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth"; // For Authentication
 import { getDatabase } from "firebase/database"; // For Realtime Database (optional)
 import { getFirestore } from "firebase/firestore"; // For Firestore (optional)
-
+// require('dotenv').config();
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDuHSLFs-bysmJwslRDPDYTT1yTt5ZR57U",
-  authDomain: "quizmaker-2e6cf.firebaseapp.com",
-  projectId: "quizmaker-2e6cf",
-  storageBucket: "quizmaker-2e6cf.firebasestorage.app",
-  messagingSenderId: "347914022457",
-  appId: "1:347914022457:web:ce524caef912465fa6e7e8",
-  measurementId: "G-CQRJ0HM6PE"
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
+  measurementId: process.env.REACT_APP_MEASUREMENTID
 };
 
 // Initialize Firebase

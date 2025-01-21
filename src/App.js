@@ -4,8 +4,7 @@ import { FirebaseContext } from './firebaseContext';
 import { useNavigate } from 'react-router-dom';
 
 function App() {
-
-  const {user} = useContext(FirebaseContext);
+  // const {user} = useContext(FirebaseContext);
   const navigate = useNavigate();
 
   return (
@@ -13,7 +12,8 @@ function App() {
         <button onClick={()=>navigate('/login')}>Login</button>
         <button onClick={()=>navigate('/quizmaker')}>Make Quiz</button>
         <button onClick={()=>navigate('/quizmakerauto')}>Automatic Quiz Generator</button>
-
+        <button onClick={()=>navigate('/signup')}>Signup</button>
+        <button onClick={()=>navigate('/quiz')}>Start Quiz</button>
      {/* {user ? console.log(user) : 'not logged in'} */}
     </div>
   );

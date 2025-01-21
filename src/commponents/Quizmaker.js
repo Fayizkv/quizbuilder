@@ -15,7 +15,7 @@ function Quizmaker() {
     const [category, setCategory] = useState('');
 
     const Navigate = useNavigate();
-    const {firestore} = useContext(FirebaseContext);
+    const { firestore } = useContext(FirebaseContext);
 
     async function handleSubmit() {
 
@@ -23,27 +23,27 @@ function Quizmaker() {
             alert("Please fill in all fields before submitting.");
             return; // Prevent form submission
         }
-            const collectionRef = collection(firestore,'questionBank');
-            // setWrongAnswers([wrongAnswer1,wrongAnswer2,wrongAnswer3]);
-            const incorrectAnswers = [wrongAnswer1, wrongAnswer2, wrongAnswer3];
+        const collectionRef = collection(firestore, 'questionBank');
+        // setWrongAnswers([wrongAnswer1,wrongAnswer2,wrongAnswer3]);
+        const incorrectAnswers = [wrongAnswer1, wrongAnswer2, wrongAnswer3];
 
-            
-            await addDoc(collectionRef,{
-                type:'multiple',
-                category:category,
-                difficulty:difficulty,
-                question:question,
-                correctAnswer:answer,
-                incorrectAnswers:incorrectAnswers
-            });
-            setQuestion('');
-            setAnswer('');
-            setWrongAnswers([]);
-            setWrongAnswer1('');
-            setWrongAnswer2('');
-            setWrongAnswer3('');
-            alert("Question added to database succesfully");
-            Navigate('/quizmaker');
+
+        await addDoc(collectionRef, {
+            type: 'multiple',
+            category: category,
+            difficulty: difficulty,
+            question: question,
+            correctAnswer: answer,
+            incorrectAnswers: incorrectAnswers
+        });
+        setQuestion('');
+        setAnswer('');
+        setWrongAnswers([]);
+        setWrongAnswer1('');
+        setWrongAnswer2('');
+        setWrongAnswer3('');
+        alert("Question added to database succesfully");
+        Navigate('/quizmaker');
     }
 
 
@@ -73,17 +73,39 @@ function Quizmaker() {
                     value={category ? category : setCategory('General Knowledge')}
                     onChange={(e) => setCategory(e.target.value)}
                 >
-                   <option value="General Knowledge">General Knowledge</option>
-                    <option value="Sports">Sports</option>
+                    <option value="General Knowledge">General Knowledge</option>
+                    <option value="Entertainment: Books">Entertainment: Books</option>
+                    <option value="Entertainment: Film">Entertainment: Film</option>
+                    <option value="Entertainment: Music">Entertainment: Music</option>
+                    <option value="Entertainment: Musicals & Theatres">Entertainment: Musicals & Theatres</option>
+                    <option value="Entertainment: Television">Entertainment: Television</option>
+                    <option value="Entertainment: Video Games">Entertainment: Video Games</option>
+                    <option value="Entertainment: Board Games">Entertainment: Board Games</option>
+                    <option value="Science & Nature">Science & Nature</option>
                     <option value="Science: Computers">Science: Computers</option>
+                    <option value="Science: Mathematics">Science: Mathematics</option>
+                    <option value="Mythology">Mythology</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Geography">Geography</option>
+                    <option value="History">History</option>
+                    <option value="Politics">Politics</option>
+                    <option value="Art">Art</option>
+                    <option value="Celebrities">Celebrities</option>
+                    <option value="Animals">Animals</option>
+                    <option value="Vehicles">Vehicles</option>
+                    <option value="Entertainment: Comics">Entertainment: Comics</option>
+                    <option value="Science: Gadgets">Science: Gadgets</option>
+                    <option value="Entertainment: Japanese Anime & Manga">Entertainment: Japanese Anime & Manga</option>
+                    <option value="Entertainment: Cartoon & Animations">Entertainment: Cartoon & Animations</option>
+
 
                 </select>
             </div>
 
             <label> Enter wrong options </label>
-            <input type="text" value={wrongAnswer1} onChange={(e)=>{setWrongAnswer1(e.target.value)}}></input>
-            <input type="text" value={wrongAnswer2} onChange={(e)=>{setWrongAnswer2(e.target.value)}}></input>
-            <input type="text" value={wrongAnswer3} onChange={(e)=>{setWrongAnswer3(e.target.value)}}></input>
+            <input type="text" value={wrongAnswer1} onChange={(e) => { setWrongAnswer1(e.target.value) }}></input>
+            <input type="text" value={wrongAnswer2} onChange={(e) => { setWrongAnswer2(e.target.value) }}></input>
+            <input type="text" value={wrongAnswer3} onChange={(e) => { setWrongAnswer3(e.target.value) }}></input>
             <button onClick={handleSubmit}> Submit </button>
             <button onClick={() => { Navigate('/') }}> Go Back </button>
 
