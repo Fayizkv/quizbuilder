@@ -8,6 +8,22 @@
   font-family: 'Arial', sans-serif;
 }
 
+/* Style the big round button */
+.big-round-button {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  padding: 20px 40px; /* Padding to make it big */
+  border-radius: 50%; /* Round shape */
+  border: none; /* Remove border */
+  font-size: 20px; /* Larger text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.big-round-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
 button {
   padding: 12px 24px;
   margin: 12px;

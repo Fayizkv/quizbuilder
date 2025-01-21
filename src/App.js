@@ -31,8 +31,8 @@ function App() {
         <div>
           <button onClick={() => navigate('/quizmaker')}>Make Quiz</button>
           <button onClick={() => navigate('/quizmakerauto')}>Automatic Quiz Generator</button>
-          <button onClick={() => navigate('/quiz')}>Start Quiz</button>
-          <button onClick={() => navigate('/scoreboard')}>Start Quiz</button>
+          <button onClick={() => navigate('/quiz')} className="big-round-button" >Start Quiz</button>
+          <button onClick={() => navigate('/scoreboard')}>Score Board</button>
           <button onClick={handleLogout}>Logout</button> {/* Logout button */}
         </div>
       ) : (

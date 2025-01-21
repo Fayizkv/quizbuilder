@@ -17,7 +17,7 @@ function Login() {
         }
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         alert("Login Success");
-        Navigate('/quiz');
+        Navigate('/');
     }
 
 
