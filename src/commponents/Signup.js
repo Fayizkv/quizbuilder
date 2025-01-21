@@ -32,7 +32,7 @@ function Signup(){
                 email,
                 mobile: Mobile,
             });
-
+            alert("Signup success");
             navigate('/login');
         } catch (error) {
             console.error("Error creating user:", error.message);

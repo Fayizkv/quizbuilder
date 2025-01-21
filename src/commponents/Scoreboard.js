@@ -1,8 +1,8 @@
-function Scoreboard({score}){
+function Scoreboard(){
 
     return(
         <div>
-            <h1> Your Score {score}</h1>
+            <h1> Your Score </h1>
         </div>
     )
 }

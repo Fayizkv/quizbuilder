@@ -8,6 +8,8 @@ import Quizmaker from './commponents/Quizmaker';
 import AutogenQuestions from './commponents/AutogenQuestions'
 import Signup from './commponents/Signup';
 import Quiz from './commponents/Quiz';
+import ProtectedRoute from './ProtectedRoute';
+import Scoreboard from './commponents/Scoreboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,11 +19,14 @@ root.render(
     <Router>
       <Routes>
         <Route path="/" element={<App/>}/>
-        <Route path="/login" element={<Login />}/>
-        <Route path="/quizmaker" element={<Quizmaker />}/>
-        <Route path="/quizmakerauto" element={<AutogenQuestions/>}/>
         <Route path="/signup" element={<Signup/>}></Route>
-        <Route path="/quiz" element={<Quiz/>}></Route>
+        <Route path="/login" element={<Login />}/>
+
+        <Route path="/quizmaker" element={ <ProtectedRoute> <Quizmaker /></ProtectedRoute>}/>
+        <Route path="/quizmakerauto" element={<ProtectedRoute> <AutogenQuestions/></ProtectedRoute>}/>
+        <Route path="/quiz" element={ <ProtectedRoute><Quiz/> </ProtectedRoute>}></Route>
+        <Route path="/scoreboard" element={ <ProtectedRoute><Scoreboard /></ProtectedRoute>}/>
+
       </Routes>
     </Router>
     </FirebaseProvider>

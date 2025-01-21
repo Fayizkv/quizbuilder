@@ -1,13 +1,11 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { FirebaseContext } from '../firebaseContext'
+import { FirebaseContext } from '../firebaseContext';
 import { addDoc, collection } from 'firebase/firestore';
-// import { cordovaPopupRedirectResolver } from 'firebase/auth/cordova';
-
+import './styles/AutogenQuestions.css'; // Adjusted path to the CSS file
 
 function AutogenQuestions() {
-
 
     const [category, setCategory] = useState('');
     const [difficulty, setDifficulty] = useState('');
@@ -16,10 +14,8 @@ function AutogenQuestions() {
 
     function generateQuesions() {
         axios.get(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`).then((response) => {
-            // console.log(response.data.results))
             const results = response.data.results;
-            // console.log(results.difficulty, results.category);
-            const collectionRef = collection(firestore, "questionBank")
+            const collectionRef = collection(firestore, "questionBank");
             results.map((obj) => {
                 addDoc(collectionRef, {
                     type: obj.type,
@@ -28,11 +24,12 @@ function AutogenQuestions() {
                     difficulty: obj.difficulty,
                     question: obj.question,
                     incorrectAnswers: obj.incorrect_answers
-                })
-            })
-            alert("Questions added to database succesfully");
-        })
+                });
+            });
+            alert("Questions added to database successfully");
+        });
     }
+
     return (
         <div>
             <label> Auto Generate Questions </label>
@@ -80,16 +77,13 @@ function AutogenQuestions() {
                     <option value="30">Science: Gadgets</option>
                     <option value="31">Entertainment: Japanese Anime & Manga</option>
                     <option value="32">Entertainment: Cartoon & Animations</option>
-
-
                 </select>
             </div>
 
             <button onClick={generateQuesions}> Auto Generate </button>
             <button onClick={() => { Navigate('/') }}> Go Back </button>
         </div>
-
-    )
+    );
 }
 
-export default AutogenQuestions
+export default AutogenQuestions;
